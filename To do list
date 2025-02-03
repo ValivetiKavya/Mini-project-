@@ -1,0 +1,33 @@
+tasks = {
+    "Complete python project": "In progress",
+    "Read chapter-3": "To do",
+    "Exercise for 30 minutes": "Done",
+    "Clean my room": "To do",
+}
+
+value = input("Enter your action (View/Add/Update/Delete Tasks): ")
+match value:
+    case "View":
+        print(tasks)
+    case "Add":
+        task = input("Enter new task: ")
+        tasks[task] = "To do"
+        print("Task added.")
+        print(tasks)
+    case "Update":
+        print(tasks)
+        task = input("Enter task to update: ")
+        if task in tasks: 
+            tasks[task] = input("Enter new description (To do/In progress/Done): ") 
+        else:
+            print("Task not found.")
+        print(tasks)
+    case "Delete":
+        print(tasks)
+        task = input("Enter task to delete: ")
+        a = tasks.pop(task, None)
+        if a is None:
+            print("Task not found")
+        else:
+            print("Task deleted")
+        print(tasks)
